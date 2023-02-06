@@ -1,6 +1,7 @@
 import React from "react";
-import Game from "./conponents/game";
-import Rules from "./conponents/rules";
+import Game from "./components/game";
+import Rules from "./components/rules";
+import Decider from "./components/decider";
 
 function App() {
   return (
@@ -24,7 +25,7 @@ function App() {
       <div className="h-[20rem]">
         <Game />
       </div>
-
+      <Decider />
       <Rules />
     </div>
   );
