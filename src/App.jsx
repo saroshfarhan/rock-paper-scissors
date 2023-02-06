@@ -6,6 +6,8 @@ import Decider from "./components/decider";
 function App() {
   //state to keep track of player's choice
   const [userChoice, setUserChoice] = useState("");
+  //state to keep track of house's choice
+  const [houseChoice, setHouseChoice] = useState("");
   //state to keep track if user has played or not
   const [chosen, setChosen] = useState(false);
 
@@ -13,13 +15,15 @@ function App() {
   const handlePlayAgain = () => {
     setChosen(false);
     setUserChoice("");
-    console.log("play again clicked");
   };
 
   //Function to handle user choice and update the states
   const handleUserChoice = (choice) => {
     setUserChoice(choice);
     setChosen(true);
+    // Randomly picks any sign from the hands array
+    const hands = ["rock", "paper", "scissor"];
+    setHouseChoice(hands[Math.floor(Math.random() * hands.length)]);
   };
 
   return (
@@ -37,12 +41,16 @@ function App() {
           <p className="absolute top-2 left-10 text-lg font-semibold uppercase tracking-wider">
             Score
           </p>
-          <h1 className="mt-2 text-[4rem] font-bold">12</h1>
+          <h1 className="mt-2 text-[4rem] font-bold">{12}</h1>
         </div>
       </div>
       <div className="h-[20rem]">
         {chosen ? (
-          <Decider userChoice={userChoice} playAgain={handlePlayAgain} />
+          <Decider
+            userChoice={userChoice}
+            playAgain={handlePlayAgain}
+            houseChoice={houseChoice}
+          />
         ) : (
           <Game handleUserChoice={handleUserChoice} />
         )}
