@@ -1,11 +1,26 @@
 import React from "react";
 
-const hands = ["rock", "paper", "scissor"];
 // Randomly picks any sign from the hands array
 const housePick = () => {
+  const hands = ["rock", "paper", "scissor"];
   return hands[Math.floor(Math.random() * hands.length)];
 };
 
+/*
+scenarios
+user    house    result
+paper   rock     user
+paper   scissor  house
+scissor rock     house
+scissor paper    user
+rock    paper    house
+rock    scissor  user
+*/
+/*
+Function to decide winner 
+@params user's choice, house's choice
+returns outcome of the game
+*/
 const declareWinner = (user, house) => {
   console.log("userchoice " + user);
   console.log("houseChoice " + house);
@@ -22,17 +37,6 @@ const declareWinner = (user, house) => {
   }
 };
 
-/*
-scenarios
-user    house    result
-paper   rock     user
-paper   scissor  house
-scissor rock     house
-scissor paper    user
-rock    paper    house
-rock    scissor  user
-*/
-
 function Decider({ userChoice, playAgain }) {
   return (
     <div>
@@ -41,7 +45,6 @@ function Decider({ userChoice, playAgain }) {
       <button type="button" onClick={playAgain}>
         Play Again
       </button>
-      {/* {console.log(declareWinner(userChoice, housePick()))} */}
     </div>
   );
 }
