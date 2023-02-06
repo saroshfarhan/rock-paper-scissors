@@ -4,15 +4,19 @@ import Rules from "./components/rules";
 import Decider from "./components/decider";
 
 function App() {
+  //state to keep track of player's choice
   const [userChoice, setUserChoice] = useState("");
+  //state to keep track if user has played or not
   const [chosen, setChosen] = useState(false);
 
+  //lifted state function to handle play again
   const handlePlayAgain = () => {
     setChosen(false);
     setUserChoice("");
     console.log("play again clicked");
   };
 
+  //Function to handle user choice and update the states
   const handleUserChoice = (choice) => {
     setUserChoice(choice);
     setChosen(true);
