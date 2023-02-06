@@ -1,9 +1,23 @@
-import React from "react";
+import React, { useState } from "react";
 import Game from "./components/game";
 import Rules from "./components/rules";
 import Decider from "./components/decider";
 
 function App() {
+  const [userChoice, setUserChoice] = useState("");
+  const [chosen, setChosen] = useState(false);
+
+  const handlePlayAgain = () => {
+    setChosen(false);
+    setUserChoice("");
+    console.log("play again clicked");
+  };
+
+  const handleUserChoice = (choice) => {
+    setUserChoice(choice);
+    setChosen(true);
+  };
+
   return (
     <div className="container mx-auto">
       <div
@@ -23,9 +37,13 @@ function App() {
         </div>
       </div>
       <div className="h-[20rem]">
-        <Game />
+        {chosen ? (
+          <Decider userChoice={userChoice} playAgain={handlePlayAgain} />
+        ) : (
+          <Game handleUserChoice={handleUserChoice} />
+        )}
       </div>
-      <Decider />
+
       <Rules />
     </div>
   );
