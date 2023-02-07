@@ -3,36 +3,7 @@ import rock from "../assets/icon-rock.svg";
 import paper from "../assets/icon-paper.svg";
 import scissor from "../assets/icon-scissors.svg";
 
-function Decider({ userChoice, playAgain, houseChoice }) {
-  /*
-scenarios
-user    house    result
-paper   rock     user
-paper   scissor  house
-scissor rock     house
-scissor paper    user
-rock    paper    house
-rock    scissor  user
-*/
-  /*
-Function to decide winner 
-@params user's choice, house's choice
-returns outcome of the game
-*/
-  const declareWinner = (user, house) => {
-    if (user === house) {
-      return "Draw";
-    } else if (
-      (user === "paper" && house === "rock") ||
-      (user === "scissor" && house === "paper") ||
-      (user === "rock" && house === "scissor")
-    ) {
-      return "You Win";
-    } else {
-      return "You Lose";
-    }
-  };
-
+function Decider({ userChoice, playAgain, houseChoice, winner }) {
   const renderChoiceImage = (choice) => {
     switch (choice) {
       case "paper":
@@ -103,7 +74,7 @@ returns outcome of the game
       </div>
       <div className="flex flex-col items-center justify-center">
         <p className="mb-4 text-[3rem] font-extrabold uppercase tracking-widest">
-          {declareWinner(userChoice, houseChoice)}
+          {winner}
         </p>
         <button
           type="button"
