@@ -11,6 +11,10 @@ function App() {
   //state to keep track if user has played or not
   const [chosen, setChosen] = useState(false);
 
+  const handleScore = (updatedScore) => {
+    setScore(updatedScore);
+  };
+
   //lifted state function to handle play again
   const handlePlayAgain = () => {
     setChosen(false);
@@ -41,7 +45,7 @@ function App() {
           <p className="absolute top-2 left-10 text-lg font-semibold uppercase tracking-wider">
             Score
           </p>
-          <h1 className="mt-2 text-[4rem] font-bold">{12}</h1>
+          <h1 className="mt-2 text-[4rem] font-bold text-darkText">{2}</h1>
         </div>
       </div>
       <div className="h-[20rem]">
