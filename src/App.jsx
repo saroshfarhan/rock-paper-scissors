@@ -67,10 +67,10 @@ returns outcome of the game
   }, [userChoice]);
 
   return (
-    <div className="container mx-auto">
+    <div className="container mx-auto h-[100%]">
       <div
         id="score-container"
-        className="mx-48 mt-10 flex items-center justify-between rounded-xl border-2 border-headerOutline px-6 py-4"
+        className="mx-4 mt-8 flex items-center justify-between rounded-xl border-2 border-headerOutline py-4 px-4 lg:mx-48 lg:mt-10 lg:px-6 lg:py-4"
       >
         <section className="text-white">
           <h1 className="text-4xl font-extrabold uppercase">Rock</h1>
@@ -84,7 +84,7 @@ returns outcome of the game
           <h1 className="mt-2 text-[4rem] font-bold text-darkText">{score}</h1>
         </div>
       </div>
-      <div className="h-[20rem]">
+      <div className="h-[48vh] lg:h-[20rem]">
         {chosen ? (
           <Decider
             userChoice={userChoice}

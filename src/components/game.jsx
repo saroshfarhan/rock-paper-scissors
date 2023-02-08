@@ -6,8 +6,11 @@ import scissor from "../assets/icon-scissors.svg";
 
 function Game({ handleUserChoice }) {
   return (
-    <div id="game-container" className="mx-26 mt-32 grid place-content-center">
-      <div id="elements-container" className="relative w-[20rem]">
+    <div
+      id="game-container"
+      className="lg:mx-26 mt-32 grid place-content-center"
+    >
+      <div id="elements-container" className="relative w-[18rem] lg:w-[20rem]">
         <img
           src={triangleBg}
           alt="triangle background"
@@ -46,7 +49,7 @@ function Game({ handleUserChoice }) {
         </div>
         <div
           id="lower-hand-container"
-          className="absolute top-[150px] left-[85px] z-0 flex h-[10rem] w-[10rem] items-center justify-center rounded-full bg-gradient-to-t from-rockStart to-rockEnd hover:cursor-pointer"
+          className="absolute top-[150px] left-[66px] z-0 flex h-[10rem] w-[10rem] items-center justify-center rounded-full bg-gradient-to-t from-rockStart to-rockEnd hover:cursor-pointer lg:left-[85px]"
           onClick={() => {
             handleUserChoice("rock");
           }}
